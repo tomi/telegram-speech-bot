@@ -1,0 +1,21 @@
+patch-package
+--- a/node_modules/bingspeech-api-client/lib/client.js
++++ b/node_modules/bingspeech-api-client/lib/client.js
+@@ -36,14 +36,15 @@ const VOICES = {
+     'zh-hk male': 'Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, Apollo)',
+     'zh-tw female': 'Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)',
+     'zh-tw male': 'Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)',
+-    'nl-nl female': 'Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)'
++    'nl-nl female': 'Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)',
++    'fi-fi female': 'Microsoft Server Speech Text to Speech Voice (fi-FI, HeidiRUS)'
+ };
+ class BingSpeechClient {
+     constructor(subscriptionKey) {
+         this.BING_SPEECH_TOKEN_ENDPOINT = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken';
+         this.BING_SPEECH_ENDPOINT_STT = 'https://speech.platform.bing.com/recognize';
+         this.BING_SPEECH_ENDPOINT_TTS = 'https://speech.platform.bing.com/synthesize';
+-        this.AUDIO_OUTPUT_FORMAT = 'riff-8khz-8bit-mono-mulaw';
++        this.AUDIO_OUTPUT_FORMAT = 'audio-16khz-64kbitrate-mono-mp3';
+         this.subscriptionKey = subscriptionKey;
+     }
+     recognize(wave, locale = 'en-us') {
